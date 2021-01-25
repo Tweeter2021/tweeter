@@ -3,9 +3,6 @@ import axios from 'axios';
 import './Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiConstants';
-// import { withRouter } from "react-router-dom";
-
 function Login(props) {
     const [state, setState] = useState({
         email: "",
@@ -26,35 +23,17 @@ function Login(props) {
             "email": state.email,
             "password": state.password,
         }
-        // axios.post(API_BASE_URL+'/user/login', payload)
-        //     .then(function (response) {
-        //         if(response.status === 200){
-        //             setState(prevState => ({
-        //                 ...prevState,
-        //                 'successMessage' : 'Login successful. Redirecting to home page..'
-        //             }))
-        //             localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
-        //             redirectToHome();
-        //             props.showError(null)
-        //         }
-        //         else if(response.code === 204){
-        //             props.showError("Username and password do not match");
-        //         }
-        //         else{
-        //             props.showError("Username does not exists");
-        //         }
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
-    }
-    const redirectToHome = () => {
-        props.updateTitle('Home')
-        props.history.push('/home');
-    }
-    const redirectToRegister = () => {
-        props.history.push('/register');
-        props.updateTitle('Register');
+        axios.post('/login', payload)
+            .then(function (response) {
+                if (response.status === 200) {
+                    console.log('hello')
+
+                }
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     return (
         <div className="login mt-2">
@@ -99,7 +78,7 @@ function Login(props) {
                 </div>
                 <div className="registerMessage">
                     <span>Dont have an account? </span>
-                    <span className="loginText" onClick={() => redirectToRegister()}>Register</span>
+                    {/* <span className="loginText" onClick={() => redirectToRegister()}>Register</span> */}
                 </div>
             </div>
         </div>

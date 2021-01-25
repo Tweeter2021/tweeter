@@ -3,13 +3,12 @@ import axios from 'axios';
 import './Signup.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import {API_BASE_URL, ACCESS_TOKEN_NAME} from '../../constants/apiConstants';
-// import { withRouter } from "react-router-dom";
-
 function Signup(props) {
     const [state, setState] = useState({
         email: "",
         password: "",
+        username: "",
+        name: "",
         confirmPassword: "",
         successMessage: null
     })
@@ -22,40 +21,25 @@ function Signup(props) {
     }
     const sendDetailsToServer = () => {
         if (state.email.length && state.password.length) {
-            props.showError(null);
             const payload = {
                 "email": state.email,
                 "password": state.password,
+                "username": state.username,
+                "name": state.name
             }
-            // axios.post(API_BASE_URL+'/user/register', payload)
-            //     .then(function (response) {
-            //         if(response.status === 200){
-            //             setState(prevState => ({
-            //                 ...prevState,
-            //                 'successMessage' : 'Registration successful. Redirecting to home page..'
-            //             }))
-            //             localStorage.setItem(ACCESS_TOKEN_NAME,response.data.token);
-            //             redirectToHome();
-            //             props.showError(null)
-            //         } else{
-            //             props.showError("Some error ocurred");
-            //         }
-            //     })
-            //     .catch(function (error) {
-            //         console.log(error);
-            //     });    
+            axios.post('/signup', payload)
+                .then(function (response) {
+                    if (response.status === 200) {
+                        console.log('user created')
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         } else {
-            props.showError('Please enter valid username and password')
+            console.log('Please enter valid username and password')
         }
 
-    }
-    const redirectToHome = () => {
-        props.updateTitle('Home')
-        props.history.push('/home');
-    }
-    const redirectToLogin = () => {
-        props.updateTitle('Login')
-        props.history.push('/login');
     }
     const handleSubmitClick = (e) => {
         e.preventDefault();
@@ -84,7 +68,26 @@ function Signup(props) {
                             value={state.email}
                             onChange={handleChange}
                         />
-                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div className="form-group text-left">
+                        <label >username</label>
+                        <input
+                            className="form-control"
+                            id="username"
+                            placeholder="username"
+                            value={state.username}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group text-left">
+                        <label >name</label>
+                        <input
+                            className="form-control"
+                            id="name"
+                            placeholder="name"
+                            value={state.name}
+                            onChange={handleChange}
+                        />
                     </div>
                     <div className="form-group text-left">
                         <label htmlFor="exampleInputPassword1">Password</label>
@@ -119,7 +122,7 @@ function Signup(props) {
                 </div>
                 <div className="mt-2">
                     <span>Already have an account? </span>
-                    <span className="loginText" onClick={() => redirectToLogin()}>Login here</span>
+                    {/* <span className="loginText" onClick={() => redirectToLogin()}>Login here</span> */}
                 </div>
 
             </div>

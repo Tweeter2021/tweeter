@@ -10,15 +10,14 @@ const userSchema = new Schema({
         unique: true,
         type: String
     },
-    // name: {
-    //     default: "",
-    //     required: true,
-    //     type: String
-    // },
+    name: {
+        default: "",
+        required: true,
+        type: String
+    },
     email: {
         required: true,
         type: String,
-        unique: true
     },
     password: {
         required: true,
@@ -39,18 +38,16 @@ const userSchema = new Schema({
         required: false,
         type: String
     },
-    location: {
-        default: "",
-        required: false,
-        type: String
-    },
+    // location: {
+    //     default: "",
+    //     required: false,
+    //     type: String
+    // },
     following: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+        type: String,
     }],
     followers: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+        type: String,
     }],
     // tweets: [{
     //     type: Schema.Types.ObjectId,

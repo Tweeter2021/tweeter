@@ -10,12 +10,13 @@ exports.signUpUser = async (req, res) => {
     UserModel.findOne({ email: req.body.email }, (err, user) => {
         if (err) {
             console.log(err)
-            return res.status(400).send('error')
+            return res.status(400).send('used username')
         }
         if (!user) {
             var newuser = new UserModel()
             newuser.username = req.body.username
             newuser.email = req.body.email
+            newuser.name = req.body.name
             newuser.password = hashedPass
             newuser.save((err, saveduser) => {
                 if (err) {
@@ -28,7 +29,7 @@ exports.signUpUser = async (req, res) => {
             })
         }
         else
-            return res.status(406).send('user existed')
+            return res.status(406).send('email used')
     })
 }
 

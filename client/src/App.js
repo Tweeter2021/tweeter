@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import './App.css';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import LoginForm from './components/Login/Login'
+import SginUpForm from './components/Login/Signup'
 
-import { BrowserRouter as Router } from 'react-router-dom'
 import Tweet from './components/Tweet';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -34,15 +37,14 @@ function App() {
     <div className="App">
       <Router >
         <Navbar toggle={toggle} />
-        <h1>Hi</h1>
+        <Tweet></Tweet>
+        <Switch>
+          <Route path="/home" exact component={LoginForm} />
+          <Route path="/bookmarks" exact component={SginUpForm} />
 
-        <p>mvhccfhv  hcthcj</p>
-        <p>mvhccfhv  hcthcj</p>
-        <Tweet/>
-        
+        </Switch>
         <Footer />
       </Router>
-      {console.log(user)}
 
       {/* {user.map(user => {
         return (

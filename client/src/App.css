@@ -1,3 +1,5 @@
+/* html{
+  height:100%
 html{
   height:100%;
   margin:20px;
@@ -6,8 +8,15 @@ body{
   display:flex;
   flex-direction:column;
   min-height:100%;
-  margin:10px;
+
+} */
+.profilemenu{
+  transform: translateX(82%) translateY(60px);
   
+@media screen and (max-width: 500px){
+  transform: translateX(42%) translateY(60px);
+  display:none
+}
 }
 
 /* .App {

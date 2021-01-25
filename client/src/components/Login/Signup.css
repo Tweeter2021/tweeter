@@ -1,0 +1,17 @@
+.signup{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginText {
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.successMessage {
+  color: green;
+  font-weight: bold;
+}
