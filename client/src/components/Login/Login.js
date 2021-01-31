@@ -32,9 +32,10 @@ function Login(props) {
                 console.log(response.data)
                 if (response.status === 200) {
                     console.log(response.data)
-                    localStorage.setItem('token', response.data)
+                    localStorage.setItem('token', JSON.stringify(response.data))
                     // window.location.href = '/home'
-
+                    var user = JSON.parse(localStorage.getItem('token'));
+                    console.log('username:',user['username'])
                 }
                 if (response.status === 203) {
                     console.log("hi")

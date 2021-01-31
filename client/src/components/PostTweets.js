@@ -6,10 +6,13 @@ import PublicOutlinedIcon from "@material-ui/icons/PublicOutlined";
 import tweets from "../apis/tweets";
 import axios from 'axios'
 
+var user = JSON.parse(localStorage.getItem('token'));
 function PostTweets() {
+
+  console.log("username",user)
   const [state, setState] = useState({
     description: "",
-    username: "raminawahda",
+    username: user['username'],
   });
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -25,7 +28,7 @@ function PostTweets() {
     e.preventDefault();
     const payload = {
         description: state.description,
-        username: "raminawahda",
+        username: user['username'],
       };
       axios
         .post("/addtweete", payload)
