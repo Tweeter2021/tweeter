@@ -12,9 +12,10 @@ const TweetCard = (props) => {
       <div class="description">
         {props.description}
       </div>
-      <div class="image" >
-        <img src="https://i.pinimg.com/236x/53/5d/ed/535ded0607931f18bfc3d823739d4f84.jpg" alt="tweet img" style={{ width: "600px", height: "auto", padding: '10px' }} />
-      </div>
+      {props.images[0] && (
+        <div class="image" >
+          <img src={props.images[0]} alt="tweet img" style={{ width: "600px", height: "auto", padding: '10px' }} />
+        </div>)}
 
       <div class="ui horizontal segments" style={{ color: "#4F4F4F", boxShadow: "#4F4F4F", width: "600px" }}>
         <div class="ui segment"  >
@@ -33,6 +34,7 @@ const TweetCard = (props) => {
 
       <div class="extra content" style={{ width: "615px", height: "auto", padding: '1px' }} >
         <div class="ui large transparent left icon input">
+
           <i>
             <img class="ui avatar image" src="https://i.pinimg.com/236x/83/ac/b1/83acb189d0fc48b18d609085661a7ac4.jpg" alt="user avatar img" />
           </i>

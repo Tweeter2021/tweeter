@@ -12,8 +12,7 @@ function Login(props) {
         value: '',
         alert: false
     })
-    var alert = false
-    var value = ''
+
     const handleChange = (e) => {
         const { id, value } = e.target
         setState(prevState => ({
@@ -32,9 +31,9 @@ function Login(props) {
             .then(function (response) {
                 console.log(response.data)
                 if (response.status === 200) {
-                    console.log(response)
+                    console.log(response.data)
                     localStorage.setItem('token', response.data)
-                    window.location.href = '/home'
+                    // window.location.href = '/home'
                 }
                 if (response.status === 203) {
                     console.log("hi")

@@ -145,8 +145,6 @@ font-size: 14px;
 
 letter-spacing: -0.035em;
 
-
-
 &.active {
     border-bottom: 3px solid #2F80ED;
     color: #2F80ED;

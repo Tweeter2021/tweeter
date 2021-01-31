@@ -1,5 +1,5 @@
 import React from 'react'
-import Tweet from '../Tweet/Tweet'
+import TweetCard from '../Tweet/TweetCard'
 import {
     ExploreContainer,
     Sidebar,
@@ -12,36 +12,58 @@ import {
     SearchField,
     SearchBtn
 } from './exploreelements'
+import '../../App.css'
+class Explore extends React.Component {
+    // eslint-disable-next-line no-useless-constructor
+    constructor() {
+        super();
+    }
 
-const Explore = () => {
-    return (
-        <>
-            <ExploreContainer>
-                <ExplorWrapper >
-                    <Sidebar>
-                        <SearchFilter>Top</SearchFilter>
-                        <SearchFilter>Latest</SearchFilter>
-                        <SearchFilter>People</SearchFilter>
-                        <SearchFilter>Media</SearchFilter>
-                    </Sidebar>
-                    <Mainbar>
-                        <Searchbar>
-                            <SearchIcon className="fa fa-search" aria-hidden="true" ></SearchIcon>
-                            <SearchField type="text" placeholder="Search" ></SearchField>
-                            <SearchBtn >Search</SearchBtn>
-                        </Searchbar>
+    componentDidMount() {
+        var header = document.getElementById("searchdiv");
+        console.log(header)
+        var btns = header.getElementsByClassName("searchfilter");
+        console.log(btns)
 
-                        <Tweetbar>
-                            <Tweet></Tweet>
-                            <Tweet></Tweet>
-                            <Tweet></Tweet>
-                        </Tweetbar>
-                    </Mainbar>
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                console.log('clicked')
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    }
 
-                </ExplorWrapper>
-            </ExploreContainer>
-        </>
-    )
+    render() {
+
+        return (
+            <>
+                <ExploreContainer>
+                    <ExplorWrapper >
+                        <Sidebar id='searchdiv'>
+                            <SearchFilter className='searchfilter active' >Top</SearchFilter>
+                            <SearchFilter className='searchfilter'>Latest</SearchFilter>
+                            <SearchFilter className='searchfilter'>People</SearchFilter>
+                            <SearchFilter className='searchfilter'>Media</SearchFilter>
+                        </Sidebar>
+                        <Mainbar>
+                            <Searchbar>
+                                <SearchIcon className="fa fa-search" aria-hidden="true" ></SearchIcon>
+                                <SearchField type="text" placeholder="Search" ></SearchField>
+                                <SearchBtn >Search</SearchBtn>
+                            </Searchbar>
+
+                            <Tweetbar>
+                                {/* <TweetCard></TweetCard> */}
+                            </Tweetbar>
+                        </Mainbar>
+
+                    </ExplorWrapper>
+                </ExploreContainer>
+            </>
+        )
+    }
 }
 
 export default Explore

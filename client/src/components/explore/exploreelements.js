@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
 
 export const ExploreContainer = styled.div`
 // background:#FFFFFF;
-background-color:#FFFFFF;
+background-color:#F2F2F2;
 display:flex;
 justify-content:space-between;
 margin-bottom:90px;
@@ -40,10 +42,12 @@ flex-direction: column;
 justify-content:flex-start;
 width: 280px;
 height: 200px;
+color:#828282;
+
 
 padding:26px 0 ;
 background: #FFFFFF;
-box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 border-radius: 8px;
 @media screen and (max-width: 700px) {
     width:100px;
@@ -53,14 +57,16 @@ border-radius: 8px;
 `;
 export const SearchFilter = styled.div`
 margin-bottom:23px;
-margin-left:26px;
-color:#828282;
+// margin-left:26px;
+padding-left:26px;
 font-family: Poppins;
 font-style: normal;
 font-weight: 600;
 font-size: 14px;
 line-height: 21px;
 cursor:pointer;
+
+
 `;
 export const Mainbar = styled.div`
 
@@ -71,8 +77,7 @@ width: 44vw;
 height: 54px;
 
 background: #FFFFFF;
-// box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
-box-shadow: 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 border-radius: 8px;
 padding:10px;
 @media screen and (max-width: 900px) {

@@ -6,6 +6,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Link } from 'react-router-dom';
 import '../../App.css'
+
+import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
+import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
+import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
+
 const Navbar = ({ toggle }) => {
     const [anchorEl, setAnchorEl] = useState(false);
     const open = Boolean(anchorEl);
@@ -52,19 +58,21 @@ const Navbar = ({ toggle }) => {
                             </NavItem>
 
                         </NavMenu>
+
                         <NavUser onClick={handleMenu} aria-controls="menu-appbar">
                             <UserImg src="https://i.pinimg.com/236x/83/ac/b1/83acb189d0fc48b18d609085661a7ac4.jpg" />
                             <UserName onClick={handleMenu} aria-controls="menu-appbar">Qamar Tweet</UserName>
-                            <Menu className="profilemenu"
+                            <Menu className="profilemenu "
                                 id="menu-appbar"
                                 anchorEl={anchorEl}
                                 getContentAnchorEl={null}
                                 open={open}
                                 onClose={handleClose}>
-                                <MenuItem onClick={handleClose} >
-                                    <Link to="Profile">Profile</Link>
-                                </MenuItem>
-                                <MenuItem onClick={LogOut} ><Link>Logout</Link></MenuItem>
+
+                                <MenuItem onClick={handleClose} ><Link to="Profile"> <AccountCircleRoundedIcon /> My Profile</Link></MenuItem>
+                                <MenuItem onClick={handleClose} ><Link to="WhoToFollow"> <GroupRoundedIcon /> Group Chat</Link></MenuItem>
+                                <MenuItem onClick={handleClose} ><Link to="Signup"> <SettingsRoundedIcon /> Settings</Link></MenuItem>
+                                <div><MenuItem onClick={LogOut} ><Link to="Login"> <ExitToAppRoundedIcon /> Logout</Link></MenuItem></div>
                             </Menu>
                         </NavUser>
 
