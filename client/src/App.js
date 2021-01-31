@@ -4,18 +4,18 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import FormPage from './components/forms/FormPage'
-import UserProfile from './components/UserProfile/Profile'
-import Follow from './components/Follow';
 import LoginForm from './components/Login/Login'
-import SginUpForm from './components/Login/Signup'
+import UserProfile from './components/UserProfile/Profile'
 
 import 'semantic-ui-css/semantic.min.css'
 import Explore from './components/explore';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
-import TrendsHashtag from './components/TrendsHashtag';
-import WhoToFollow from './components/WhoToFollow';
+// import FormPage from './components/forms/FormPage'
+// import Follow from './components/Follow';
+import SginUpForm from './components/Login/Signup'
+// import TrendsHashtag from './components/TrendsHashtag';
+// import WhoToFollow from './components/WhoToFollow';
 
 import Home from "./components/Home"
 import Bookmarks from "./components/Bookmarks"
