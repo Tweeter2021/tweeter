@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Alert from "@material-ui/lab/Alert";
+// import Alert from "@material-ui/lab/Alert";
 
 function Login(props) {
     const [state, setState] = useState({
@@ -32,8 +32,10 @@ function Login(props) {
                 console.log(response.data)
                 if (response.status === 200) {
                     console.log(response.data)
-                    localStorage.setItem('token', response.data)
+                    localStorage.setItem('token', JSON.stringify(response.data))
                     // window.location.href = '/home'
+                    var user = JSON.parse(localStorage.getItem('token'));
+                    console.log('username:',user['username'])
                 }
                 if (response.status === 203) {
                     console.log("hi")
@@ -56,7 +58,7 @@ function Login(props) {
 
             })
             .catch(function (error) {
-                console.log(error.status);
+            console.log(error.status);
             });
     }
     return (
@@ -94,7 +96,7 @@ function Login(props) {
                     {state.alert && (
                         <>
                             <br></br>
-                            <Alert severity="error">{state.value}</Alert>
+                            {/* <Alert severity="error">{state.value}</Alert> */}
                         </>
                     )}
                     <button

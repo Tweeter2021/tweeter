@@ -7,7 +7,7 @@ const TweetCard = (props) => {
       <div class="content">
         <img class="ui avatar image" src="https://i.pinimg.com/236x/a7/39/b6/a739b66117d68315626cff61e1da5402.jpg" alt="user img" />
         {props.username}
-        <div class="meta">{props.createdAt}</div>
+        <div class="meta">{props.createdAt.split('T')[1].split('.')[0]}</div>
       </div>
       <div class="description">
         {props.description}
