@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Alert from "@material-ui/lab/Alert";
+// import Alert from "@material-ui/lab/Alert";
 
 function Login(props) {
     const [state, setState] = useState({
@@ -12,8 +12,7 @@ function Login(props) {
         value: '',
         alert: false
     })
-    var alert = false
-    var value = ''
+
     const handleChange = (e) => {
         const { id, value } = e.target
         setState(prevState => ({
@@ -95,7 +94,7 @@ function Login(props) {
                     {state.alert && (
                         <>
                             <br></br>
-                            <Alert severity="error">{state.value}</Alert>
+                            {/* <Alert severity="error">{state.value}</Alert> */}
                         </>
                     )}
                     <button

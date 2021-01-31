@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Signup.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Alert from "@material-ui/lab/Alert";
+// import Alert from "@material-ui/lab/Alert";
 
 function Signup(props) {
     const [state, setState] = useState({
@@ -134,7 +134,7 @@ function Signup(props) {
                     {state.alert && (
                         <>
                             <br></br>
-                            <Alert severity="error">{state.value}</Alert>
+                            {/* <Alert severity="error">{state.value}</Alert> */}
                         </>
                     )}
                     <button
