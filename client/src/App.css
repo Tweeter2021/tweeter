@@ -21,6 +21,10 @@
   display:none
 }
 }
+.active {
+  border-left: 3px solid #2F80ED;
+  color:#2F80ED;
+}
 
 /* .App {
   text-align: center;

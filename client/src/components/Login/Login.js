@@ -31,9 +31,10 @@ function Login(props) {
             .then(function (response) {
                 console.log(response.data)
                 if (response.status === 200) {
-                    console.log(response)
+                    console.log(response.data)
                     localStorage.setItem('token', response.data)
-                    window.location.href = '/home'
+                    // window.location.href = '/home'
+
                 }
                 if (response.status === 203) {
                     console.log("hi")
@@ -56,7 +57,7 @@ function Login(props) {
 
             })
             .catch(function (error) {
-                console.log(error.status);
+            console.log(error.status);
             });
     }
     return (
