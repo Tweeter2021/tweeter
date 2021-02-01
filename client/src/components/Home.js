@@ -14,6 +14,12 @@ function Home(props) {
                 transform: 'translate(-50%, -50%)', backgroundColor: '#FFF'
             }}>
                 <PostTweets />
+                <div style={{
+                position: 'absolute', left: '50%', top: '250vh',
+                transform: 'translate(-50%, -50%)', backgroundColor: '#FFF'
+            }}>
+                <Tweet />
+            </div>
             </div>
             <div style={{
                 position: 'absolute', left: '80%', top: '30%',
@@ -27,17 +33,7 @@ function Home(props) {
             }}>
                 <WhoToFollow />
             </div>
-            <div style={{
-                position: 'absolute', left: '40%', top: '750%',
-                transform: 'translate(-50%, -50%)', backgroundColor: '#FFF'
-            }}>
-                {/* <Mainbar> */}
-                {/* <Tweetbar> */}
-                <Tweet />
-
-                {/* </Tweetbar> */}
-                {/* </Mainbar> */}
-            </div>
+        
         </div >
     )
 }
