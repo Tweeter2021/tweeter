@@ -68,3 +68,15 @@ exports.loginUser = (req, res) => {
         }
     })
 }
+
+exports.searchPeople = (req, res) => {
+    var searchvale = req.body.search
+    UserModel.find({ "username": { "$regex": searchvale, "$options": "i" } }, (err, data) => {
+        if (err)
+            return res.status(400).send('error')
+        else {
+            return res.status(200).send(data)
+
+        }
+    })
+}

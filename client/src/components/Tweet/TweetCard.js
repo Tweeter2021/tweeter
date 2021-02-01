@@ -37,7 +37,7 @@ const TweetCard = (props) => {
         <div class="image" >
           <img src={props.images[0]} alt="tweet img" style={{ width: "600px", height: "auto", padding: '10px' }} />
         </div>)}
-
+        <div class="meta" style={{padding:"2px"}}>{props.likes.length} likes</div>
       <div class="ui horizontal segments" style={{ color: "#4F4F4F", boxShadow: "#4F4F4F", width: "600px" }}>
         <div class="ui segment"  >
           <a href="#" class="card-link" style={{ color: "#4F4F4F", boxShadow: "#4F4F4F" }}><i class="comment icon"></i>comment</a>

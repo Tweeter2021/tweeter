@@ -27,6 +27,7 @@ const Tweet = (props) => {
               createdAt={tweet.createdAt}
               description={tweet.description}
               images={tweet.images}
+              likes={tweet.likes}
               id={tweet._id}
             />
           );
