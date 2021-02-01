@@ -1,7 +1,28 @@
 import React from 'react'
 import pic from "./avatar.png";
+import axios from 'axios'
 
+var user = JSON.parse(localStorage.getItem('token'));
+var likeColor="#4F4F4F"
 const TweetCard = (props) => {
+  const handleClick = (e) => {
+    const {id,value,key}=e.target
+    e.preventDefault();
+    console.log('The link was clicked.',props.id);
+
+    axios
+    .post("/like", {username:user.username,id:props.id})
+    .then(function (response) {
+      console.log(response.data)
+      if (response.status === 200) {
+        likeColor="red"
+        console.log("tweet liked");
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
   return (
     <div class="ui card" style={{ width: "600px", height: "auto", marginBottom: '20px', padding: '1px' }}>
       <div class="content">
@@ -25,7 +46,7 @@ const TweetCard = (props) => {
           <a href="#" class="card-link" style={{ color: "#4F4F4F", boxShadow: "#4F4F4F" }}><i class="retweet icon" ></i>retweet</a>
         </div>
         <div class="ui segment">
-          <a href="#" class="card-link" style={{ color: "#4F4F4F", boxShadow: "#4F4F4F" }}><i class="heart outline like icon" ></i>liked</a>
+          <a href="#" class="card-link" id="like"  value={props.id} onClick={handleClick} style={{ color: `${likeColor}`, boxShadow: "#4F4F4F" }} ><i class="heart outline like icon" ></i>liked</a>
         </div>
         <div class="ui segment">
           <a href="#" class="card-link" style={{ color: "#4F4F4F", boxShadow: "#4F4F4F" }}><i class="bookmark outline icon" ></i>saved</a>

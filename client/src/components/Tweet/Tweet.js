@@ -3,6 +3,7 @@ import pic from "./avatar.png";
 import tweets from "../../apis/tweets";
 import TweetCard from './TweetCard'
 
+
 const Tweet = (props) => {
   const [tweetInfo, setTweetInfo] = useState([]);
 
@@ -26,6 +27,7 @@ const Tweet = (props) => {
               createdAt={tweet.createdAt}
               description={tweet.description}
               images={tweet.images}
+              id={tweet._id}
             />
           );
         }

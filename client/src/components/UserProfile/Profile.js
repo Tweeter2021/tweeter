@@ -10,6 +10,7 @@ import ReactTwitterFollowButton from 'react-twitter-follow-button';
 import Tweet from '../Tweet/Tweet'
 import axios from 'axios'
 
+var user = JSON.parse(localStorage.getItem('token'));
 
 function UserProfile(props) {
     // const { state, actions } = useContext(StoreContext)
@@ -93,7 +94,7 @@ function UserProfile(props) {
     return (
         <div className="profile-page">
             <div className="page-header header-filter" >
-                <img src="https://images.iphonephotographyschool.com/22682/How-To-Blur-Background-On-iPhone.jpg" alt="Circle Image" className="cover-photo" />
+                <img src={user.banner} alt="Circle Image" className="cover-photo" />
             </div>
             <div className="main main-raised">
 
@@ -106,7 +107,7 @@ function UserProfile(props) {
                                     <ul class="twPc-Arrange">
                                         <div class="twPc-divStats">
                                             <div class="twPc-divName">
-                                                <a href="https://twitter.com">QamarTweet</a>
+                                                <a href="https://twitter.com">{user.name}</a>
                                             </div>
                                         </div>
                                         <li class="twPc-ArrangeSizeFit">
@@ -132,9 +133,9 @@ function UserProfile(props) {
                                 </div>
                                 <div className="profile">
                                     <div className="avatar">
-                                        <img src="https://i.pinimg.com/236x/83/ac/b1/83acb189d0fc48b18d609085661a7ac4.jpg" alt="Circle Image" className="img-raised img-fluid" />
+                                        <img src={user.profileImg} alt="Circle Image" className="img-raised img-fluid" />
                                         <div className="description-user">
-                                            <p>An artist of considerable range, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. </p>
+                                            <p>{user.description}</p>
                                         </div>
                                     </div>
                                 </div>
