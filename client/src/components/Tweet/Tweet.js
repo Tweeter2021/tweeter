@@ -29,6 +29,7 @@ const Tweet = (props) => {
               images={tweet.images}
               likes={tweet.likes}
               id={tweet._id}
+              
             />
           );
         }
