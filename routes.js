@@ -6,6 +6,8 @@ const routers = express.Router();
 const userController = require('./controller/userController')
 routers.post('/signup', userController.signUpUser);
 routers.post('/login', userController.loginUser);
+routers.post('/searchpeople', userController.searchPeople);
+
 
 
 
@@ -13,6 +15,7 @@ routers.post('/login', userController.loginUser);
 const TweeteController = require('./controller/tweetesController')
 routers.post('/addtweete', TweeteController.addTweete);
 routers.get('/gitalltweete', TweeteController.gitAllTweetes);
+routers.post('/search', TweeteController.searchTweet);
 
 
 //Follow Controller 
@@ -31,6 +34,7 @@ routers.post('/unsave', BookmarkController.unsaveTweet);
 const LikesController = require('./controller/likeController')
 routers.post('/like', LikesController.likeTweet);
 routers.post('/removelike', LikesController.removelLike);
+
 
 
 module.exports = routers;
