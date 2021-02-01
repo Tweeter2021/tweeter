@@ -139,7 +139,8 @@ class Explore extends React.Component {
                                         createdAt={tweet.createdAt}
                                         description={tweet.description}
                                         images={tweet.images}
-                                        likes={tweet.likes}></TweetCard>))
+                                        likes={tweet.likes}
+                                        id={tweet._id}></TweetCard>))
 
 
                                 )}

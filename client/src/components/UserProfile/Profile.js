@@ -112,14 +112,14 @@ function UserProfile(props) {
                                         </div>
                                         <li class="twPc-ArrangeSizeFit">
                                             <a href="https://twitter.com/" title="885 Following">
-                                                <span class="twPc-StatValue">885
+                                                <span class="twPc-StatValue">{user.following.length}
                                                         <span class="twPc-StatLabel twPc-block">following</span>
                                                 </span>
                                             </a>
                                         </li>
                                         <li class="twPc-ArrangeSizeFit">
                                             <a href="https://twitter.com/mertskaplan/followers" title="1.810 Followers">
-                                                <span class="twPc-StatValue">1.810
+                                                <span class="twPc-StatValue">{user.followers.length}
                                                         <span class="twPc-StatLabel twPc-block">followers</span>
                                                 </span>
                                             </a>
